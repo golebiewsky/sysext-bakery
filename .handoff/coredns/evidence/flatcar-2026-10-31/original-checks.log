@@ -1,0 +1,70 @@
+coredns:x:999:999:CoreDNS:/:/sbin/nologin
+active
+active
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.10
+Uid:	999	999	999	999
+Gid:	999	999	999	999
+CapEff:	0000000000000400
+Oct 31 03:35:13 localhost coredns[1571]: CoreDNS-1.14.7
+Oct 31 03:35:13 localhost coredns[1571]: linux/amd64, go1.26.6, 427fc80
+Oct 31 03:35:31 localhost systemd[1]: Stopping coredns.service - CoreDNS DNS server...
+Oct 31 03:35:31 localhost coredns[1571]: [INFO] SIGTERM: Shutting down servers then terminating
+Oct 31 03:35:31 localhost systemd[1]: coredns.service: Deactivated successfully.
+Oct 31 03:35:31 localhost systemd[1]: Stopped coredns.service - CoreDNS DNS server.
+Oct 31 03:35:31 localhost systemd[1]: coredns.service: Consumed 886ms CPU time over 20.909s wall clock time, 72.1M memory peak.
+Oct 31 03:35:31 localhost systemd[1]: Started coredns.service - CoreDNS DNS server.
+Oct 31 03:35:31 localhost coredns[1802]: maxprocs: Leaving GOMAXPROCS=2: CPU quota undefined
+Oct 31 03:35:31 localhost coredns[1802]: Listen: listen tcp :53: bind: address already in use
+Oct 31 03:35:31 localhost systemd[1]: coredns.service: Main process exited, code=exited, status=1/FAILURE
+Oct 31 03:35:31 localhost systemd[1]: coredns.service: Failed with result 'exit-code'.
+Oct 31 03:35:34 localhost systemd[1]: coredns.service: Scheduled restart job, restart counter is at 1.
+Oct 31 03:35:34 localhost systemd[1]: Started coredns.service - CoreDNS DNS server.
+Oct 31 03:35:34 localhost coredns[1815]: maxprocs: Leaving GOMAXPROCS=2: CPU quota undefined
+Oct 31 03:35:34 localhost coredns[1815]: Listen: listen tcp :53: bind: address already in use
+Oct 31 03:35:34 localhost systemd[1]: coredns.service: Main process exited, code=exited, status=1/FAILURE
+Oct 31 03:35:34 localhost systemd[1]: coredns.service: Failed with result 'exit-code'.
+PASS: original wildcard listener fails with active systemd-resolved
+device-mapper: reload ioctl on loop6p1-102-verity (253:5) failed: Invalid argument
+device-mapper: reload ioctl on loop7p1-106-verity (253:5) failed: Invalid argument
+device-mapper: reload ioctl on loop8p1-110-verity (253:5) failed: Invalid argument
+device-mapper: reload ioctl on loop9p1-114-verity (253:5) failed: Invalid argument
+device-mapper: reload ioctl on loop6p1-118-verity (253:6) failed: Invalid argument
+device-mapper: reload ioctl on loop7p1-122-verity (253:7) failed: Invalid argument
+Using extensions 'containerd-flatcar.raw', 'docker-flatcar.raw', 'oem-qemu-4757.2.3.raw'.
+Unmerged '/usr'.
+Merged extensions into '/usr'.
+[sss_cache] [sss_tool_confdb_init] (0x0010): Can't access '/var/lib/sss/db/config.ldb', probably SSSD isn't configured
+Can't find configuration db, was SSSD configured and run?
+[sss_cache] [sss_tool_confdb_init] (0x0010): Can't access '/var/lib/sss/db/config.ldb', probably SSSD isn't configured
+Can't find configuration db, was SSSD configured and run?
+device-mapper: reload ioctl on loop8p1-126-verity (253:8) failed: Invalid argument
+device-mapper: reload ioctl on loop8p1-131-verity (253:8) failed: Invalid argument
+device-mapper: reload ioctl on loop8p1-139-verity (253:8) failed: Invalid argument
+device-mapper: reload ioctl on loop8p1-144-verity (253:8) failed: Invalid argument
+device-mapper: reload ioctl on loop10p1-148-verity (253:9) failed: Invalid argument
+device-mapper: reload ioctl on loop12p1-154-verity (253:10) failed: Invalid argument
+Using extensions 'containerd-flatcar.raw', 'coredns-v1.14.7-x86-64.raw', 'docker-flatcar.raw', 'oem-qemu-4757.2.3.raw'.
+Unmerged '/usr'.
+Merged extensions into '/usr'.
+Oct 31 03:35:34 localhost systemd[1]: coredns.service: Scheduled restart job, restart counter is at 1.
+Oct 31 03:35:34 localhost systemd[1]: Started coredns.service - CoreDNS DNS server.
+Oct 31 03:35:34 localhost coredns[1815]: maxprocs: Leaving GOMAXPROCS=2: CPU quota undefined
+Oct 31 03:35:34 localhost coredns[1815]: Listen: listen tcp :53: bind: address already in use
+Oct 31 03:35:34 localhost systemd[1]: coredns.service: Main process exited, code=exited, status=1/FAILURE
+Oct 31 03:35:34 localhost systemd[1]: coredns.service: Failed with result 'exit-code'.
+Oct 31 03:35:34 localhost systemd[1]: Stopped coredns.service - CoreDNS DNS server.
+Oct 31 03:35:36 localhost systemd[1]: Started coredns.service - CoreDNS DNS server.
+Oct 31 03:35:36 localhost (coredns)[2171]: coredns.service: Failed to determine credentials for user 'coredns': Unknown user
+Oct 31 03:35:36 localhost (coredns)[2171]: coredns.service: Failed at step USER spawning /usr/bin/coredns: Invalid argument
+Oct 31 03:35:36 localhost systemd[1]: coredns.service: Main process exited, code=exited, status=217/USER
+Oct 31 03:35:36 localhost systemd[1]: coredns.service: Failed with result 'exit-code'.
+Oct 31 03:35:39 localhost systemd[1]: coredns.service: Scheduled restart job, restart counter is at 1.
+Oct 31 03:35:39 localhost systemd[1]: Started coredns.service - CoreDNS DNS server.
+Oct 31 03:35:39 localhost (coredns)[2176]: coredns.service: Failed to determine credentials for user 'coredns': Unknown user
+Oct 31 03:35:39 localhost (coredns)[2176]: coredns.service: Failed at step USER spawning /usr/bin/coredns: Invalid argument
+Oct 31 03:35:39 localhost systemd[1]: coredns.service: Main process exited, code=exited, status=217/USER
+Oct 31 03:35:39 localhost systemd[1]: coredns.service: Failed with result 'exit-code'.
+Result=exit-code
+ExecMainStatus=217
+PASS: original live install lacks coredns account

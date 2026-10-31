@@ -1,0 +1,5 @@
+PASS: UDP and TCP DNS resolve deterministic local record
+PASS: SIGUSR1 reload changes UDP and TCP answers without process exit
+PASS: invalid config reload preserves working DNS
+PASS: SIGTERM exits cleanly
+PASS: reproduced wildcard listener conflict with a resolver stub on 127.0.0.53

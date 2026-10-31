@@ -1,0 +1,90 @@
+Warning: Permanently added '[127.0.0.1]:2222' (ED25519) to the list of known hosts.
+NAME="Flatcar Container Linux by Kinvolk"
+ID="flatcar"
+ID_LIKE="coreos"
+VERSION="4757.2.3"
+VERSION_ID="4757.2.3"
+BUILD_ID="2026-10-27-1008"
+SYSEXT_LEVEL="1.0"
+PRETTY_NAME="Flatcar Container Linux by Kinvolk 4757.2.3"
+ANSI_COLOR="38;5;75"
+HOME_URL="https://flatcar.org"
+BUG_REPORT_URL="https://issues.flatcar.org"
+SUPPORT_URL="https://groups.google.com/forum/#!forum/flatcar-linux-user"
+FLATCAR_BOARD="amd64-usr"
+CPE_NAME="cpe:2.3:o:flatcar-linux:flatcar_linux:4757.2.3:*:*:*:*:*:*:*"
+HIERARCHY EXTENSIONS         SINCE
+/opt      none               -
+/usr      containerd-flatcar Sat 2026-10-31 03:35:57 UTC
+          coredns            
+          docker-flatcar     
+          oem-qemu           
+coredns:x:999:999:CoreDNS:/:/sbin/nologin
+active
+active
+active
+enabled
+Uid:	999	999	999	999
+Gid:	999	999	999	999
+CapEff:	0000000000000400
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.10
+OKOKPASS: fixed first boot, unprivileged user, only bind capability, UDP/TCP, health/readiness
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.20
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.20
+PASS: service reload changes answers without process exit
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.20
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.20
+PASS: invalid reload preserves working DNS
+udp read udp 127.0.0.1:33320->127.0.0.1:53: read: connection refused
+udp read udp 127.0.0.1:53672->127.0.0.1:53: read: connection refused
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.20
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.20
+PASS: restart policy recovers after invalid startup config is repaired
+active
+active
+OKOKPASS: shipped example starts beside systemd-resolved
+udp read udp 192.0.2.53:45404->192.0.2.53:53: read: connection refused
+udp read udp 192.0.2.53:45240->192.0.2.53:53: read: connection refused
+PASS: udp 192.0.2.53:53 sysext.test = 192.0.2.10
+PASS: tcp 192.0.2.53:53 sysext.test = 192.0.2.10
+PASS: delayed bind address recovers without another service start
+udp read udp 127.0.0.1:45381->127.0.0.1:53: read: connection refused
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.10
+device-mapper: reload ioctl on loop6p1-102-verity (253:5) failed: Invalid argument
+device-mapper: reload ioctl on loop7p1-106-verity (253:5) failed: Invalid argument
+device-mapper: reload ioctl on loop8p1-110-verity (253:5) failed: Invalid argument
+device-mapper: reload ioctl on loop9p1-114-verity (253:5) failed: Invalid argument
+device-mapper: reload ioctl on loop6p1-118-verity (253:6) failed: Invalid argument
+device-mapper: reload ioctl on loop7p1-122-verity (253:7) failed: Invalid argument
+Using extensions 'containerd-flatcar.raw', 'docker-flatcar.raw', 'oem-qemu-4757.2.3.raw'.
+Unmerged '/usr'.
+Merged extensions into '/usr'.
+[sss_cache] [sss_tool_confdb_init] (0x0010): Can't access '/var/lib/sss/db/config.ldb', probably SSSD isn't configured
+Can't find configuration db, was SSSD configured and run?
+[sss_cache] [sss_tool_confdb_init] (0x0010): Can't access '/var/lib/sss/db/config.ldb', probably SSSD isn't configured
+Can't find configuration db, was SSSD configured and run?
+active
+device-mapper: reload ioctl on loop8p1-126-verity (253:8) failed: Invalid argument
+device-mapper: reload ioctl on loop8p1-131-verity (253:8) failed: Invalid argument
+device-mapper: reload ioctl on loop8p1-136-verity (253:8) failed: Invalid argument
+device-mapper: reload ioctl on loop8p1-144-verity (253:8) failed: Invalid argument
+device-mapper: reload ioctl on loop10p1-148-verity (253:9) failed: Invalid argument
+device-mapper: reload ioctl on loop11p1-152-verity (253:10) failed: Invalid argument
+Using extensions 'containerd-flatcar.raw', 'coredns-v1.14.7-x86-64.raw', 'docker-flatcar.raw', 'oem-qemu-4757.2.3.raw'.
+Unmerged '/usr'.
+Merged extensions into '/usr'.
+udp read udp 127.0.0.1:41798->127.0.0.1:53: read: connection refused
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.10
+coredns:x:999:999:CoreDNS:/:/sbin/nologin
+PASS: live install creates account after boot sysusers has finished
+device-mapper: reload ioctl on loop13p1-161-verity (253:11) failed: Invalid argument
+device-mapper: reload ioctl on loop13p1-166-verity (253:11) failed: Invalid argument
+device-mapper: reload ioctl on loop13p1-171-verity (253:11) failed: Invalid argument
+device-mapper: reload ioctl on loop14p1-178-verity (253:11) failed: Invalid argument
+device-mapper: reload ioctl on loop15p1-182-verity (253:12) failed: Invalid argument
+device-mapper: reload ioctl on loop16p1-186-verity (253:13) failed: Invalid argument
+Skipping extension refresh because no change was found, use --always-refresh=yes to always do a refresh.
+PASS: /opt content remains visible and writable across refresh
