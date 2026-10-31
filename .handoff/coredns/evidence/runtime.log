@@ -1,0 +1,12 @@
+maxprocs: Leaving GOMAXPROCS=96: CPU quota undefined
+.:10539 on 127.0.0.1
+CoreDNS-1.14.7
+linux/amd64, go1.26.6, 427fc80
+[INFO] SIGUSR1: Reloading
+[INFO] Reloading
+[INFO] Reloading complete
+[INFO] SIGUSR1: Reloading
+[INFO] Reloading
+[ERROR] Restart failed: /workspaces/plans/coredns-sysext-review/Corefile.runtime:2 - Error during parsing: Unknown directive 'invalid_plugin'
+[ERROR] SIGUSR1: starting with listener file descriptors: /workspaces/plans/coredns-sysext-review/Corefile.runtime:2 - Error during parsing: Unknown directive 'invalid_plugin'
+[INFO] SIGTERM: Shutting down servers then terminating

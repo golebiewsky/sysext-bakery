@@ -1,0 +1,23 @@
+--- a/docs/coredns.md
++++ b/docs/coredns.md
+@@ -76,5 +76,6 @@
+           .:53 {
++              bind 127.0.0.1
+               errors
+-              health
+-              ready
++              health 127.0.0.1:8080
++              ready 127.0.0.1:8181
+               forward . 9.9.9.9 1.1.1.1
+--- a/coredns.sysext/files/usr/share/doc/coredns/Corefile.example
++++ b/coredns.sysext/files/usr/share/doc/coredns/Corefile.example
+@@ -6,6 +6,7 @@
+ .:53 {
++    bind 127.0.0.1
+     errors
+     log
+-    health
+-    ready
++    health 127.0.0.1:8080
++    ready 127.0.0.1:8181
+     # Forward everything else to an upstream resolver.

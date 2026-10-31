@@ -1,0 +1,34 @@
+variant: flatcar
+version: 1.0.0
+storage:
+  files:
+    - path: /opt/extensions/coredns/coredns-v1.14.7-x86-64.raw
+      mode: 0644
+      contents:
+        source: http://10.0.2.2:12345/coredns-v1.14.7-x86-64.raw
+    - path: /etc/coredns/Corefile
+      mode: 0644
+      contents:
+        inline: |
+          .:53 {
+              bind 127.0.0.1
+              errors
+              health 127.0.0.1:8080
+              ready 127.0.0.1:8181
+              hosts {
+                  192.0.2.10 sysext.test
+                  ttl 1
+              }
+          }
+  links:
+    - path: /etc/extensions/coredns.raw
+      target: /opt/extensions/coredns/coredns-v1.14.7-x86-64.raw
+      hard: false
+systemd:
+  units:
+    - name: coredns.service
+      enabled: true
+    - name: update-engine.service
+      mask: true
+    - name: locksmithd.service
+      mask: true

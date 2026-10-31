@@ -1,0 +1,52 @@
+    ----- ===== ##### Copying static files ##### ===== -----
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/lib' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/lib'
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/lib/systemd' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/lib/systemd'
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/lib/systemd/system' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/lib/systemd/system'
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/lib/systemd/system/coredns.service' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/lib/systemd/system/coredns.service'
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/lib/sysusers.d' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/lib/sysusers.d'
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/lib/sysusers.d/coredns.conf' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/lib/sysusers.d/coredns.conf'
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/share' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/share'
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/share/doc' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/share/doc'
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/share/doc/coredns' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/share/doc/coredns'
+'/workspaces/coredns-sysext-review/coredns.sysext/files/usr/share/doc/coredns/Corefile.example' -> '/tmp/tmp.LWm76Bd3D4/coredns/usr/share/doc/coredns/Corefile.example'
+    ----- ===== ##### Populating extension root ##### ===== -----
+    ----- ===== ##### Fetching CoreDNS v1.15.0 for x86-64 ##### ===== -----
+    ----- ===== ##### Verifying coredns_1.15.0_linux_amd64.tgz ##### ===== -----
+coredns_1.15.0_linux_amd64.tgz: OK
+    ----- ===== ##### Generating extension file system image ##### ===== -----
+    ----- ===== ##### Generating metadata in '/tmp/tmp.LWm76Bd3D4/coredns/usr/lib/extension-release.d/extension-release.coredns' ##### ===== -----
+ID=_any
+ARCHITECTURE=x86-64
+EXTENSION_RELOAD_MANAGER=1
+
+    ----- ===== ##### Creating extension image 'coredns-v1.15.0-x86-64.raw' and generating SHA256SUM ##### ===== -----
+Parallel mksquashfs: Using 96 processors
+Creating 4.0 filesystem on coredns-v1.15.0-x86-64.raw, block size 131072.
+[===============================================================|] 602/602 100%
+
+Exportable Squashfs 4.0 filesystem, gzip compressed, data block size 131072
+	compressed data, compressed metadata, compressed fragments,
+	compressed xattrs, compressed ids
+	duplicates are removed
+Filesystem size 23327.78 Kbytes (22.78 Mbytes)
+	30.51% of uncompressed filesystem size (76461.37 Kbytes)
+Inode table size 1846 bytes (1.80 Kbytes)
+	63.52% of uncompressed inode table size (2906 bytes)
+Directory table size 222 bytes (0.22 Kbytes)
+	56.20% of uncompressed directory table size (395 bytes)
+Number of duplicate files found 0
+Number of inodes 16
+Number of files 5
+Number of fragments 1
+Number of symbolic links 0
+Number of device nodes 0
+Number of fifo nodes 0
+Number of socket nodes 0
+Number of directories 11
+Number of hard-links 0
+Number of ids (unique uids + gids) 1
+Number of uids 1
+	root (0)
+Number of gids 1
+	root (0)
+    ----- ===== ##### 'coredns-v1.15.0-x86-64.raw' is now ready ##### ===== -----
