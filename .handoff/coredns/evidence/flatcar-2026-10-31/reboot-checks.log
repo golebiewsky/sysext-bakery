@@ -1,0 +1,16 @@
+029d0a91-8369-4580-83bf-a843104374e4
+active
+active
+active
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.10
+CoreDNS-1.14.7
+linux/amd64, go1.26.6, 427fc80
+Oct 31 03:37:55 localhost systemd[1]: Starting coredns-sysusers.service - Create the CoreDNS system user...
+Oct 31 03:37:55 localhost systemd[1]: Finished coredns-sysusers.service - Create the CoreDNS system user.
+Oct 31 03:37:55 localhost systemd[1]: Started coredns.service - CoreDNS DNS server.
+Oct 31 03:37:57 localhost coredns[1562]: maxprocs: Leaving GOMAXPROCS=2: CPU quota undefined
+Oct 31 03:37:57 localhost coredns[1562]: .:53 on 127.0.0.1
+Oct 31 03:37:57 localhost coredns[1562]: CoreDNS-1.14.7
+Oct 31 03:37:57 localhost coredns[1562]: linux/amd64, go1.26.6, 427fc80
+PASS: boot ID changed and enabled CoreDNS recovered after reboot

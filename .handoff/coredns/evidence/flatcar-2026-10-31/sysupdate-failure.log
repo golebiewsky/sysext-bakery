@@ -1,0 +1,55 @@
+Oct 31 03:36:50 localhost systemd[1]: Starting systemd-sysupdate.service - Automatic System Update...
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: /etc/sysupdate.coredns.d/coredns.conf:1: Target specification lacks MatchPattern= expression. Assuming same value as in source specification.
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: As of v257, transfer definitions should have the '.transfer' extension.
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: Discovering available instances…
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: \ Acquiring manifest file http://10.0.2.2:12345/SHA256SUMS…
+Oct 31 03:36:50 localhost systemd-pull[2601]: Pulling 'http://10.0.2.2:12345/SHA256SUMS'.
+Oct 31 03:36:50 localhost systemd-pull[2601]: Downloading 278B for http://10.0.2.2:12345/SHA256SUMS.
+Oct 31 03:36:50 localhost systemd-pull[2601]: Acquired 278B for http://10.0.2.2:12345/SHA256SUMS.
+Oct 31 03:36:50 localhost systemd-pull[2601]: Download of http://10.0.2.2:12345/SHA256SUMS complete.
+Oct 31 03:36:50 localhost systemd-pull[2601]: Operation completed successfully.
+Oct 31 03:36:50 localhost systemd-pull[2601]: Exiting.
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: Determining installed update sets…
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: Determining available update sets…
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: Selected update 'v1.15.0' for install.
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: Making room for 1 updates…
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: Found nothing to remove.
+Oct 31 03:36:50 localhost systemd-sysupdate[2599]: \ Acquiring http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw → /opt/extensions/coredns/coredns-v1.15.0-x86-64.raw...
+Oct 31 03:36:50 localhost systemd-pull[2602]: Pulling 'http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw', saving as '/opt/extensions/coredns/.sysupdate.partial.coredns-v1.15.0-x86-64.raw'.
+Oct 31 03:36:51 localhost systemd-pull[2602]: Downloading 22.7M for http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw.
+Oct 31 03:36:51 localhost systemd-pull[2602]: Got 1% of http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw.
+Oct 31 03:36:51 localhost systemd-pull[2602]: Acquired 22.7M for http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw.
+Oct 31 03:36:51 localhost systemd-pull[2602]: Download of http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw complete.
+Oct 31 03:36:51 localhost systemd-pull[2602]: Operation completed successfully.
+Oct 31 03:36:51 localhost systemd-pull[2602]: Exiting.
+Oct 31 03:36:51 localhost systemd-sysupdate[2599]: Successfully acquired 'http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw'.
+Oct 31 03:36:51 localhost systemd-sysupdate[2599]: Successfully installed 'http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw' (url-file) as '/opt/extensions/coredns/coredns-v1.15.0-x86-64.raw' (regular-file).
+Oct 31 03:36:51 localhost systemd-sysupdate[2599]: Updated symlink '/etc/extensions/coredns.raw' → '../../opt/extensions/coredns/coredns-v1.15.0-x86-64.raw'.
+Oct 31 03:36:51 localhost systemd-sysupdate[2599]: * Successfully installed update 'v1.15.0'.
+Oct 31 03:36:51 localhost systemd-sysupdate[2604]: Discovering available instances…
+Oct 31 03:36:51 localhost systemd-sysupdate[2604]: Determining installed update sets…
+Oct 31 03:36:51 localhost systemd-sysupdate[2604]: Determining available update sets…
+Oct 31 03:36:51 localhost systemd-sysupdate[2604]: No update needed.
+Oct 31 03:36:51 localhost systemd-sysext[2611]: device-mapper: reload ioctl on loop13p1-193-verity (253:11) failed: Invalid argument
+Oct 31 03:36:51 localhost systemd-sysext[2611]: Failed to read metadata for image oem-qemu: Operation not permitted
+Oct 31 03:36:51 localhost systemd[1]: systemd-sysupdate.service: Control process exited, code=exited, status=1/FAILURE
+Oct 31 03:36:51 localhost systemd[1]: systemd-sysupdate.service: Failed with result 'exit-code'.
+Oct 31 03:36:51 localhost systemd[1]: Failed to start systemd-sysupdate.service - Automatic System Update.
+../../opt/extensions/coredns/coredns-v1.15.0-x86-64.raw
+● coredns.service - CoreDNS DNS server
+     Loaded: loaded (/usr/lib/systemd/system/coredns.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2026-10-31 03:36:32 UTC; 25s ago
+ Invocation: 42f7cb0cca074e68aa921e148a7de796
+       Docs: https://coredns.io/manual/toc/
+   Main PID: 2357 (coredns)
+      Tasks: 7 (limit: 15190)
+     Memory: 70.3M (peak: 70.7M)
+        CPU: 603ms
+     CGroup: /system.slice/coredns.service
+             └─2357 /usr/bin/coredns -conf /etc/coredns/Corefile
+
+Oct 31 03:36:32 localhost systemd[1]: Started coredns.service - CoreDNS DNS server.
+Oct 31 03:36:33 localhost coredns[2357]: maxprocs: Leaving GOMAXPROCS=2: CPU quota undefined
+Oct 31 03:36:33 localhost coredns[2357]: .:53 on 127.0.0.1
+Oct 31 03:36:33 localhost coredns[2357]: CoreDNS-1.14.7
+Oct 31 03:36:33 localhost coredns[2357]: linux/amd64, go1.26.6, 427fc80

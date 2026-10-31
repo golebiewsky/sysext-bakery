@@ -1,0 +1,119 @@
+[Transfer]
+Verify=false
+
+[Source]
+Type=url-file
+Path=http://10.0.2.2:12345/
+MatchPattern=coredns-@v-%a.raw
+
+[Target]
+InstancesMax=3
+Type=regular-file
+Path=/opt/extensions/coredns
+CurrentSymlink=/etc/extensions/coredns.raw
+/etc/sysupdate.coredns.d/coredns.conf:1: Target specification lacks MatchPattern= expression. Assuming same value as in source specification.
+As of v257, transfer definitions should have the '.transfer' extension.
+Discovering available instances…
+⤵️ Acquiring manifest file http://10.0.2.2:12345/SHA256SUMS…
+Pulling 'http://10.0.2.2:12345/SHA256SUMS'.
+Downloading 278B for http://10.0.2.2:12345/SHA256SUMS.
+Acquired 278B for http://10.0.2.2:12345/SHA256SUMS.
+Download of http://10.0.2.2:12345/SHA256SUMS complete.
+Operation completed successfully.
+Exiting.
+  VERSION INSTALLED AVAILABLE ASSESSMENT
+↻ v1.15.0               ✓     candidate
+● v1.14.7     ✓         ✓     current
+Determining installed update sets…
+Determining available update sets…
+Oct 31 03:36:51 localhost systemd[1]: systemd-sysupdate.service: Failed with result 'exit-code'.
+Oct 31 03:36:51 localhost systemd[1]: Failed to start systemd-sysupdate.service - Automatic System Update.
+Oct 31 03:37:11 localhost systemd[1]: Starting systemd-sysupdate.service - Automatic System Update...
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: /etc/sysupdate.coredns.d/coredns.conf:1: Target specification lacks MatchPattern= expression. Assuming same value as in source specification.
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: As of v257, transfer definitions should have the '.transfer' extension.
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: Discovering available instances…
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: \ Acquiring manifest file http://10.0.2.2:12345/SHA256SUMS…
+Oct 31 03:37:11 localhost systemd-pull[2800]: Pulling 'http://10.0.2.2:12345/SHA256SUMS'.
+Oct 31 03:37:11 localhost systemd-pull[2800]: Downloading 278B for http://10.0.2.2:12345/SHA256SUMS.
+Oct 31 03:37:11 localhost systemd-pull[2800]: Acquired 278B for http://10.0.2.2:12345/SHA256SUMS.
+Oct 31 03:37:11 localhost systemd-pull[2800]: Download of http://10.0.2.2:12345/SHA256SUMS complete.
+Oct 31 03:37:11 localhost systemd-pull[2800]: Operation completed successfully.
+Oct 31 03:37:11 localhost systemd-pull[2800]: Exiting.
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: Determining installed update sets…
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: Determining available update sets…
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: Selected update 'v1.15.0' for install.
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: Making room for 1 updates…
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: Found nothing to remove.
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: \ Acquiring http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw → /opt/extensions/coredns/coredns-v1.15.0-x86-64.raw...
+Oct 31 03:37:11 localhost systemd-pull[2801]: Pulling 'http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw', saving as '/opt/extensions/coredns/.sysupdate.partial.coredns-v1.15.0-x86-64.raw'.
+Oct 31 03:37:11 localhost systemd-pull[2801]: Downloading 22.7M for http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw.
+Oct 31 03:37:11 localhost systemd-pull[2801]: Got 1% of http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw.
+Oct 31 03:37:11 localhost systemd-pull[2801]: Acquired 22.7M for http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw.
+Oct 31 03:37:11 localhost systemd-pull[2801]: Download of http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw complete.
+Oct 31 03:37:11 localhost systemd-pull[2801]: Operation completed successfully.
+Oct 31 03:37:11 localhost systemd-pull[2801]: Exiting.
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: Successfully acquired 'http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw'.
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: Successfully installed 'http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw' (url-file) as '/opt/extensions/coredns/coredns-v1.15.0-x86-64.raw' (regular-file).
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: Updated symlink '/etc/extensions/coredns.raw' → '../../opt/extensions/coredns/coredns-v1.15.0-x86-64.raw'.
+Oct 31 03:37:11 localhost systemd-sysupdate[2799]: * Successfully installed update 'v1.15.0'.
+Oct 31 03:37:11 localhost systemd-sysupdate[2803]: Discovering available instances…
+Oct 31 03:37:11 localhost systemd-sysupdate[2803]: Determining installed update sets…
+Oct 31 03:37:11 localhost systemd-sysupdate[2803]: Determining available update sets…
+Oct 31 03:37:11 localhost systemd-sysupdate[2803]: No update needed.
+Oct 31 03:37:13 localhost systemd[1]: systemd-sysupdate.service: Deactivated successfully.
+Oct 31 03:37:13 localhost systemd[1]: Started systemd-sysupdate.service - Automatic System Update.
+Oct 31 03:37:30 localhost systemd[1]: Starting systemd-sysupdate.service - Automatic System Update...
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: /etc/sysupdate.coredns.d/coredns.conf:1: Target specification lacks MatchPattern= expression. Assuming same value as in source specification.
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: As of v257, transfer definitions should have the '.transfer' extension.
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: Discovering available instances…
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: \ Acquiring manifest file http://10.0.2.2:12345/SHA256SUMS…
+Oct 31 03:37:30 localhost systemd-pull[3564]: Pulling 'http://10.0.2.2:12345/SHA256SUMS'.
+Oct 31 03:37:30 localhost systemd-pull[3564]: Downloading 278B for http://10.0.2.2:12345/SHA256SUMS.
+Oct 31 03:37:30 localhost systemd-pull[3564]: Acquired 278B for http://10.0.2.2:12345/SHA256SUMS.
+Oct 31 03:37:30 localhost systemd-pull[3564]: Download of http://10.0.2.2:12345/SHA256SUMS complete.
+Oct 31 03:37:30 localhost systemd-pull[3564]: Operation completed successfully.
+Oct 31 03:37:30 localhost systemd-pull[3564]: Exiting.
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: Determining installed update sets…
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: Determining available update sets…
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: Selected update 'v1.15.0' for install.
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: Making room for 1 updates…
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: Found nothing to remove.
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: \ Acquiring http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw → /opt/extensions/coredns/coredns-v1.15.0-x86-64.raw...
+Oct 31 03:37:30 localhost systemd-pull[3565]: Pulling 'http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw', saving as '/opt/extensions/coredns/.sysupdate.partial.coredns-v1.15.0-x86-64.raw'.
+Oct 31 03:37:30 localhost systemd-pull[3565]: Downloading 22.7M for http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw.
+Oct 31 03:37:30 localhost systemd-pull[3565]: Got 1% of http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw.
+Oct 31 03:37:30 localhost systemd-pull[3565]: Acquired 22.7M for http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw.
+Oct 31 03:37:30 localhost systemd-pull[3565]: Download of http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw complete.
+Oct 31 03:37:30 localhost systemd-pull[3565]: Operation completed successfully.
+Oct 31 03:37:30 localhost systemd-pull[3565]: Exiting.
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: Successfully acquired 'http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw'.
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: Successfully installed 'http://10.0.2.2:12345/coredns-v1.15.0-x86-64.raw' (url-file) as '/opt/extensions/coredns/coredns-v1.15.0-x86-64.raw' (regular-file).
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: Updated symlink '/etc/extensions/coredns.raw' → '../../opt/extensions/coredns/coredns-v1.15.0-x86-64.raw'.
+Oct 31 03:37:30 localhost systemd-sysupdate[3562]: * Successfully installed update 'v1.15.0'.
+Oct 31 03:37:30 localhost systemd-sysupdate[3567]: Discovering available instances…
+Oct 31 03:37:30 localhost systemd-sysupdate[3567]: Determining installed update sets…
+Oct 31 03:37:30 localhost systemd-sysupdate[3567]: Determining available update sets…
+Oct 31 03:37:30 localhost systemd-sysupdate[3567]: No update needed.
+Oct 31 03:37:32 localhost systemd[1]: systemd-sysupdate.service: Deactivated successfully.
+Oct 31 03:37:32 localhost systemd[1]: Started systemd-sysupdate.service - Automatic System Update.
+CoreDNS-1.15.0
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: actual sysupdate downloads v1.15.0, changes link, refreshes and restarts CoreDNS
+PASS: unchanged sysupdate does not restart CoreDNS
+device-mapper: reload ioctl on loop14p1-291-verity (253:11) failed: Invalid argument
+device-mapper: reload ioctl on loop14p1-296-verity (253:11) failed: Invalid argument
+device-mapper: reload ioctl on loop14p1-301-verity (253:11) failed: Invalid argument
+device-mapper: reload ioctl on loop14p1-309-verity (253:11) failed: Invalid argument
+device-mapper: reload ioctl on loop15p1-313-verity (253:12) failed: Invalid argument
+device-mapper: reload ioctl on loop16p1-317-verity (253:13) failed: Invalid argument
+Using extensions 'containerd-flatcar.raw', 'coredns-v1.14.7-x86-64.raw', 'docker-flatcar.raw', 'oem-qemu-4757.2.3.raw'.
+Unmerged '/usr'.
+Merged extensions into '/usr'.
+CoreDNS-1.14.7
+udp read udp 127.0.0.1:44466->127.0.0.1:53: read: connection refused
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: udp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: tcp 127.0.0.1:53 sysext.test = 192.0.2.10
+PASS: manual rollback restores v1.14.7 and working DNS

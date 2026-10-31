@@ -1,0 +1,23 @@
+Warning: Permanently added '[127.0.0.1]:2222' (ED25519) to the list of known hosts.
+NAME="Flatcar Container Linux by Kinvolk"
+ID="flatcar"
+ID_LIKE="coreos"
+VERSION="4757.2.3"
+VERSION_ID="4757.2.3"
+BUILD_ID="2026-10-27-1008"
+SYSEXT_LEVEL="1.0"
+PRETTY_NAME="Flatcar Container Linux by Kinvolk 4757.2.3"
+ANSI_COLOR="38;5;75"
+HOME_URL="https://flatcar.org"
+BUG_REPORT_URL="https://issues.flatcar.org"
+SUPPORT_URL="https://groups.google.com/forum/#!forum/flatcar-linux-user"
+FLATCAR_BOARD="amd64-usr"
+CPE_NAME="cpe:2.3:o:flatcar-linux:flatcar_linux:4757.2.3:*:*:*:*:*:*:*"
+HIERARCHY EXTENSIONS         SINCE
+/opt      none               -
+/usr      containerd-flatcar Sat 2026-10-31 03:38:26 UTC
+          coredns            
+          docker-flatcar     
+          oem-qemu           
+disabled
+PASS: fresh merge without config or enablement leaves CoreDNS inactive without start attempts

@@ -1,5 +1,7 @@
 # CoreDNS PR handoff
 
+See [VALIDATION.md](VALIDATION.md) for the corrected implementation and Flatcar VM results. The review and checklist below preserve the baseline investigation.
+
 Continue work on [golebiewsky/sysext-bakery#1](https://github.com/golebiewsky/sysext-bakery/pull/1), branch `coredns-sysext`. The user wants this fork PR fixed and tested before a clean contribution goes to `flatcar/sysext-bakery`. This directory is temporary handoff material. Remove it before upstream submission.
 
 ## Start here
