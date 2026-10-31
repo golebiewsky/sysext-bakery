@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
-# vim: et ts=2 syn=bash
-#
-# Test script for the coredns sysext.
-#
+# Check a built squashfs image, defaulting to coredns.raw.
 # Usage: ./coredns.sysext/test.sh [<image.raw>]
-#
-# Checks a built squashfs image. Defaults to "coredns.raw" in the current
-# directory. "coredns -version" only runs when the image arch matches the host.
+# The version command runs only when the image matches the host architecture.
 
 set -euo pipefail
 
@@ -33,14 +28,12 @@ function check() {
 # --
 
 workdir="$(mktemp -d)"
-trap "rm -rf '${workdir}'" EXIT
+trap 'rm -rf -- "${workdir}"' EXIT
 
 unsquashfs -no-progress -force -dest "${workdir}/root" "${image}" >/dev/null
 root="${workdir}/root"
 
-# The image must merge into /usr only. A sysext merges both /usr and /opt, and
-# a hierarchy becomes a read-only overlay as soon as any merged image ships it.
-# Shipping /opt here would hide files consumers place there at install time.
+# The image must merge into /usr only, so /opt remains writable.
 function only_usr() {
   local stray
   stray="$(find "${root}" -mindepth 1 -maxdepth 1 -not -name usr -printf '%f\n')"

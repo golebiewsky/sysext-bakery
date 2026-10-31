@@ -4,10 +4,11 @@
 # See https://coredns.io/manual/toc/ for the plugin reference.
 
 .:53 {
+    bind 127.0.0.1
     errors
     log
-    health
-    ready
+    health 127.0.0.1:8080
+    ready 127.0.0.1:8181
     # Forward everything else to an upstream resolver.
     forward . 9.9.9.9 1.1.1.1
     cache 30

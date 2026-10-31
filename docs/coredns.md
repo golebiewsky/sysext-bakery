@@ -9,7 +9,7 @@ The image contains:
 - a `sysusers.d` entry that creates that `coredns` system user
 - a commented example configuration at `/usr/share/doc/coredns/Corefile.example`
 
-Everything the image ships lives under `/usr`. A hierarchy becomes a read-only overlay as soon as one merged image ships it, so an extension that shipped an `/opt` path would hide files a node placed there at install time. This one never does that.
+Everything the image ships lives under `/usr`. Shipping paths under `/opt` would make that hierarchy a read-only overlay. Existing lower-layer files would remain visible, but writes through the overlay would fail. This extension leaves `/opt` writable.
 
 ## Configuration
 
@@ -21,7 +21,9 @@ CoreDNS exits when an address named in a `bind` directive is not up yet. That ha
 
 ## Service ordering
 
-The shipped unit orders itself after `network-online.target` and nothing else, because what CoreDNS must start before is a site decision. Add your own ordering with a drop-in rather than replacing the unit:
+The shipped unit orders itself after `network-online.target` and requires `coredns-sysusers.service`. That service runs `systemd-sysusers` with the shipped account definition before CoreDNS starts. It works at boot and on a live first install, even when the boot sysusers service has already finished.
+
+What CoreDNS must start before is a site decision. Add your own ordering with a drop-in rather than replacing the unit:
 
 ```yaml
 systemd:
@@ -39,7 +41,15 @@ systemd:
 
 The extension does not start CoreDNS by itself. It ships no `multi-user.target.upholds` drop-in, so a node that merges the image before its `Corefile` exists does not get a failing service. Enable the unit when the config is in place, as the snippet below does.
 
-The extension also does not touch `systemd-resolved`. Whether CoreDNS replaces the stub resolver is up to you.
+The extension also does not touch `systemd-resolved`. The example binds DNS, health, and readiness to `127.0.0.1`. This avoids a wildcard DNS listener that conflicts with the resolved stub at `127.0.0.53:53`. For remote clients, choose a specific service address and an access policy.
+
+## Host resolver integration
+
+Starting CoreDNS does not make it the host resolver. The usage example leaves `systemd-resolved` and `/etc/resolv.conf` unchanged. Applications can query CoreDNS directly at `127.0.0.1:53`.
+
+To make CoreDNS the host resolver, configure the cutover in site provisioning. Supply the required internal zones and explicit upstream DNS servers. Stop competing listeners such as dnsmasq, verify that CoreDNS answers, and direct host lookups to it. If replacing `systemd-resolved`, disable that service and replace its resolver symlink with a managed `/etc/resolv.conf`. Coordinate any DHCP or Tailscale settings that manage host DNS.
+
+Do not forward CoreDNS queries to `/etc/resolv.conf` when that file points back to CoreDNS. For containers or remote clients, add explicit service addresses to every DNS server block and configure the required interface ordering and access policy.
 
 ## Usage
 
@@ -47,6 +57,7 @@ Download and merge the sysext at provisioning time using the below Butane snippe
 
 The snippet includes automated updates via systemd-sysupdate.
 Sysupdate will stage updates, refresh the merged sysext, and restart `coredns.service` — no reboot is required.
+The update hook restarts the host's `systemd-sysext.service` so the merge runs outside the sysupdate sandbox.
 You can deactivate updates by changing `enabled: true` to `enabled: false` in `systemd-sysupdate.timer`.
 
 Note that the snippet is for the x86-64 version of CoreDNS v1.14.7.
@@ -74,9 +85,10 @@ storage:
       contents:
         inline: |
           .:53 {
+              bind 127.0.0.1
               errors
-              health
-              ready
+              health 127.0.0.1:8080
+              ready 127.0.0.1:8181
               forward . 9.9.9.9 1.1.1.1
               cache 30
               loop
@@ -100,7 +112,7 @@ systemd:
             ExecStartPre=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/coredns.raw > /run/coredns-sysext"
             ExecStartPre=/usr/lib/systemd/systemd-sysupdate -C coredns update
             ExecStartPost=/usr/bin/sh -c "readlink --canonicalize /etc/extensions/coredns.raw > /run/coredns-sysext-new"
-            ExecStartPost=/usr/bin/sh -c "if ! cmp --silent /run/coredns-sysext /run/coredns-sysext-new; then systemd-sysext refresh && systemctl restart coredns.service; fi"
+            ExecStartPost=/usr/bin/sh -c "if ! cmp --silent /run/coredns-sysext /run/coredns-sysext-new; then systemctl restart systemd-sysext.service && systemctl restart coredns.service; fi"
 ```
 
 ## Testing a built image
