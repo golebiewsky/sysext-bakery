@@ -1,0 +1,7 @@
+[Unit]
+Description=Create the CoreDNS system user
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemd-sysusers /usr/lib/sysusers.d/coredns.conf
+RemainAfterExit=yes
