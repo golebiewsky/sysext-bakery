@@ -1,0 +1,30 @@
+[Unit]
+Description=Prometheus node exporter
+Documentation=https://github.com/prometheus/node_exporter
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+# /etc/default/node_exporter may set NODE_EXPORTER_ARGS to replace these defaults.
+Environment="NODE_EXPORTER_ARGS=--web.listen-address=:9100 --collector.textfile.directory=/var/lib/node_exporter"
+EnvironmentFile=-/etc/default/node_exporter
+ExecStart=/usr/bin/node_exporter $NODE_EXPORTER_ARGS
+Restart=on-failure
+RestartSec=5s
+
+DynamicUser=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=yes
+ProtectControlGroups=yes
+ProtectKernelModules=yes
+ProtectKernelTunables=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+RestrictNamespaces=yes
+RestrictRealtime=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+
+[Install]
+WantedBy=multi-user.target
