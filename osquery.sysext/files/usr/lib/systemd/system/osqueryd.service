@@ -1,0 +1,24 @@
+[Unit]
+Description=osquery daemon
+Documentation=https://osquery.readthedocs.io/
+ConditionPathExists=/etc/osquery/osquery.flags
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/usr/bin/osqueryd --flagfile=/etc/osquery/osquery.flags
+Restart=on-failure
+RestartSec=5s
+# Stop the watcher, worker and extensions together, as the upstream packages do.
+KillMode=control-group
+TimeoutStopSec=15
+
+# Runs as root: most tables need it. Nothing below hides host paths from tables.
+NoNewPrivileges=yes
+ProtectSystem=full
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+
+[Install]
+WantedBy=multi-user.target
