@@ -2,7 +2,8 @@
 Description=Prometheus node exporter
 Documentation=https://github.com/prometheus/node_exporter
 Wants=network-online.target
-After=network-online.target
+Requires=node_exporter-sysusers.service
+After=network-online.target node_exporter-sysusers.service
 
 [Service]
 # /etc/default/node_exporter may set NODE_EXPORTER_ARGS to replace these defaults.
@@ -12,7 +13,10 @@ ExecStart=/usr/bin/node_exporter $NODE_EXPORTER_ARGS
 Restart=on-failure
 RestartSec=5s
 
-DynamicUser=yes
+# A static user, not DynamicUser=: dbus-daemon cannot resolve dynamic UIDs and
+# drops their connections, which breaks --collector.systemd.
+User=node_exporter
+Group=node_exporter
 NoNewPrivileges=yes
 ProtectSystem=strict
 ProtectHome=read-only
@@ -25,6 +29,8 @@ RestrictNamespaces=yes
 RestrictRealtime=yes
 LockPersonality=yes
 MemoryDenyWriteExecute=yes
+RestrictSUIDSGID=yes
+RemoveIPC=yes
 
 [Install]
 WantedBy=multi-user.target
