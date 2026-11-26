@@ -6,7 +6,8 @@ It uses the static release binary published by the Prometheus project.
 The image contains:
 
 - the `node_exporter` binary at `/usr/bin/node_exporter`
-- a `node_exporter.service` unit that runs the exporter as an unprivileged dynamic user with a read-only view of the file system
+- a `node_exporter.service` unit that runs the exporter as an unprivileged `node_exporter` user with a read-only view of the file system
+- a `sysusers.d` entry that creates that `node_exporter` system user, and a `node_exporter-sysusers.service` unit that applies it before the exporter starts, also on a live merge after boot
 - a `multi-user.target` drop-in with `Upholds=node_exporter.service`, so the exporter starts at boot and on merge
 - a `tmpfiles.d` entry that creates `/var/lib/node_exporter` for the textfile collector
 
@@ -27,6 +28,9 @@ NODE_EXPORTER_ARGS="--web.listen-address=127.0.0.1:9100 --collector.textfile.dir
 ```
 
 Run `systemctl restart node_exporter` after you change the file.
+
+The exporter runs as a static user, not a systemd `DynamicUser=`.
+On hosts with `dbus-daemon`, as on Flatcar, the bus cannot resolve dynamic UIDs and closes their connections, so `--collector.systemd` would fail.
 
 The textfile directory is owned by root with mode 0755.
 Jobs that write metrics there should write to a temporary file and rename it into place, so the exporter never reads a partial file.

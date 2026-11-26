@@ -1,0 +1,7 @@
+[Unit]
+Description=Create the node_exporter system user
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/systemd-sysusers /usr/lib/sysusers.d/node_exporter.conf
+RemainAfterExit=yes
